@@ -1,7 +1,8 @@
 import React from 'react';
 import { List, Edit, Create, Datagrid, ReferenceField, TextField,
-         EditButton, Filter, DisabledInput, LongTextInput, ReferenceInput,
-         SelectInput, SimpleForm, TextInput } from 'admin-on-rest';
+         EditButton, Filter, DisabledInput, LongTextInput,
+         ReferenceInput, Responsive, SelectInput, SimpleForm,
+         SimpleList, TextInput } from 'admin-on-rest';
 
 const PostFilter = (props) => (
           <Filter {...props}>
@@ -14,15 +15,26 @@ const PostFilter = (props) => (
 
 export const PostList = (props) => (
     <List {...props} filters={<PostFilter />}>
-        <Datagrid>
-            <TextField source="id" />
-              <ReferenceField label="User" source="userId" reference="users">
-                <TextField source="name" />
-            </ReferenceField>
-            <TextField source="title" />
-            <TextField source="body" />
-            <EditButton />
-        </Datagrid>
+     <Responsive
+          small={
+              <SimpleList
+                  primaryText={record => record.title}
+                  secondaryText={record => `${record.views} views`}
+                  tertiaryText={record => new Date(record.published_at).toLocaleDateString()}
+              />
+          }
+          medium={
+              <Datagrid>
+                  <TextField source="id" />
+                  <ReferenceField label="User" source="userId" reference="users">
+                      <TextField source="name" />
+                  </ReferenceField>
+                  <TextField source="title" />
+                  <TextField source="body" />
+                  <EditButton />
+              </Datagrid>
+          }
+      />
     </List>
 );
 
@@ -60,3 +72,10 @@ export const PostCreate = (props) => (
 
 // The form rendered in the create and edit pages is already functional.
 // It issues POST and PUT requests to the REST API upon submission
+
+// use <SimpleList /> component instead of <Datagrid for a mobile responsive experience
+/* The <SimpleList> component uses material-ui’s <List> and <ListItem> components,
+   and expects functions as primaryText, secondaryText, and tertiaryText props.
+   However it leads to a poor desktop experience. So the <Responsive> component is used
+   to detect and respond to screen size
+*/
