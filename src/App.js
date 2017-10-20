@@ -3,6 +3,7 @@ import React from 'react';
 import './App.css';
 import { jsonServerRestClient, Admin, Resource } from 'admin-on-rest';
 import { PostList } from './posts';
+import { UserList } from './users';
 
 const App = () => (
     <Admin restClient={jsonServerRestClient('http://jsonplaceholder.typicode.com')}>
