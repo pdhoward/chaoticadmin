@@ -13,7 +13,7 @@ import { stringify } from 'query-string';
 const API_URL = 'http://jsonplaceholder.typicode.com';
 
 /**
- * @param {String} type One of the constants appearing at the top if this file, e.g. 'UPDATE'
+ * @param {String} type One of the constants appearing at the top of this file, e.g. 'UPDATE'
  * @param {String} resource Name of the resource to fetch, e.g. 'posts'
  * @param {Object} params The REST request params, depending on the type
  * @returns {Object} { url, options } The HTTP request parameters
