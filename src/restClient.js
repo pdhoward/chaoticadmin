@@ -1,28 +1,3 @@
-//Using Another REST Dialect
-/*
-Here is the elephant in the room of this tutorial. In real world projects, the REST dialect of your API won’t match the JSONPLaceholder dialect. Writing a REST client is probably the first thing you’ll have to do to make admin-on-rest work. Depending on your API, this can require a few hours of additional work.
-
-Admin-on-rest delegates every REST call to a REST client function. This function must simply return a promise for the result.
-
-This gives extreme freedom to map any API dialect, add authentication headers, use endpoints from several domains, etc.
-
-For instance, let’s imagine you have to use the my.api.url API, which expects the following parameters:
-
-Action	Expected REST request
-Get list	GET http://my.api.url/posts?sort=['title','ASC']&range=[0, 24]&filter={title:'bar'}
-Get one record	GET http://my.api.url/posts/123
-Get several records	GET http://my.api.url/posts?filter={ids:[123,456,789]}
-Update a record	PUT http://my.api.url/posts/123
-Create a record	POST http://my.api.url/posts/123
-Delete a record	DELETE http://my.api.url/posts/123
-Admin-on-rest defines custom verbs for each of the actions of this list. Just like HTTP verbs (GET, POST, etc.),
-REST verbs qualify a request to a REST server.
-Admin-on-rest verbs are called GET_LIST, GET_ONE, GET_MANY, CREATE, UPDATE, and DELETE.
-The REST client will have to map each of these verbs to one (or many) HTTP request(s).
-
-The code for an API client for my.api.url is as follows:
-*/
-// in src/restClient
 import {
     GET_LIST,
     GET_ONE,
@@ -133,14 +108,3 @@ export default (type, resource, params) => {
     return fetchJson(url, options)
         .then(response => convertHTTPResponseToREST(response, type, resource, params));
 };
-///////////////////////
-// Using this client instead of the previous jsonServerRestClient is just a matter of switching a function:
-
-// in src/app.js
-import myApiRestClient from './restClient';
-
-const App = () => (
-    <Admin restClient={myApiRestClient} dashboard={Dashboard}>
-        // ...
-    </Admin>
-);
