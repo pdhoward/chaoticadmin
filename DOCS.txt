@@ -1,6 +1,12 @@
 
 
 
+start point for customizing a rest client
+
+https://github.com/marmelab/admin-on-rest/blob/master/src/rest/simple.js
+
+----------------------
+
 embed an image 
 https://stackoverflow.com/questions/45916762/custom-title-with-image-in-admin-on-rest
 

@@ -6,11 +6,30 @@ import {
     CREATE,
     UPDATE,
     DELETE,
-    fetchUtils,
+    fetchUtils
 } from 'admin-on-rest';
 import { stringify } from 'query-string';
 
-const API_URL = 'http://jsonplaceholder.typicode.com';
+
+/* pattern used in microplex to fetch an array
+getAgentArray = (cb) => {
+  let agentCall = { url: config.testdb.url,
+                    headers: { "Content-Type": "application/json",
+                               "Authorization": "token" } };
+  rp(agentCall).then(function(body) {
+      return cb(body)
+    }) }
+*/
+
+const httpClient = (url, options = {}) => {
+    options.user = {
+        authenticated: true,
+        token: 'SRTRDFVESGNJYTUKTYTHRG'
+    }
+    return fetchUtils.fetchJson(url, options);
+}
+
+const API_URL = 'http://localhost:5002/admin';
 
 /**
  * @param {String} type One of the constants appearing at the top of this file, e.g. 'UPDATE'
@@ -103,6 +122,8 @@ const convertHTTPResponseToREST = (response, type, resource, params) => {
  * @returns {Promise} the Promise for a REST response
  */
 export default (type, resource, params) => {
+    console.log("ENTERED restClient")
+    console.log(type, resource, params)
     const { fetchJson } = fetchUtils;
     const { url, options } = convertRESTRequestToHTTP(type, resource, params);
     return fetchJson(url, options)
