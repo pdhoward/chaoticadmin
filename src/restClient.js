@@ -10,7 +10,7 @@ import {
 } from 'admin-on-rest';
 import { stringify } from 'query-string';
 
-const API_URL = 'my.api.url';
+const API_URL = 'http://jsonplaceholder.typicode.com';
 
 /**
  * @param {String} type One of the constants appearing at the top if this file, e.g. 'UPDATE'
