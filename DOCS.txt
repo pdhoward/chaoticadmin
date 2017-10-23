@@ -1,0 +1,18 @@
+
+
+
+embed an image 
+https://stackoverflow.com/questions/45916762/custom-title-with-image-in-admin-on-rest
+
+
+modal for a form
+https://stackoverflow.com/questions/42763651/admin-on-rest-hide-form-input-depends-on-other-input-value
+
+https://stackoverflow.com/questions/43933574/adding-role-based-access-control-for-admin-on-rest
+
+
+custom buttons
+https://stackoverflow.com/questions/45669460/how-can-i-add-a-createbutton-seeding-the-foreign-key-to-a-referencemanyfield
+
+dynamic direction of url
+https://stackoverflow.com/questions/44773018/how-to-setup-dynamic-urls-for-resources-in-admin-on-rest
