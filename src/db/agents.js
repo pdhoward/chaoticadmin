@@ -26,11 +26,11 @@ export const AgentList = (props) => (
           medium={
               <Datagrid>
                   <TextField source="id" />
-                  <ReferenceField label="User" source="userId" reference="users">
+                  <ReferenceField label="Client" source="clientId" reference="clients">
                       <TextField source="name" />
                   </ReferenceField>
-                  <TextField source="title" />
-                  <TextField source="body" />
+                  <TextField source="handle" />
+                  <TextField source="greeting" />
                   <EditButton />
               </Datagrid>
           }
@@ -46,11 +46,11 @@ export const ClientEdit = (props) => (
     <Edit title={<PostTitle />} {...props}>
         <SimpleForm>
             <DisabledInput source="id" />
-            <ReferenceInput label="User" source="userId" reference="users">
+            <ReferenceInput label="Client" source="clientId" reference="clients">
                 <SelectInput optionText="name" />
             </ReferenceInput>
-            <TextInput source="title" />
-            <LongTextInput source="body" />
+            <TextInput source="handle" />
+            <LongTextInput source="greeting" />
         </SimpleForm>
     </Edit>
 );
@@ -58,11 +58,11 @@ export const ClientEdit = (props) => (
 export const ClientCreate = (props) => (
     <Create {...props}>
         <SimpleForm>
-            <ReferenceInput label="User" source="userId" reference="users" allowEmpty>
+            <ReferenceInput label="Client" source="clientId" reference="clients" allowEmpty>
                 <SelectInput optionText="name" />
             </ReferenceInput>
-            <TextInput source="title" />
-            <LongTextInput source="body" />
+            <TextInput source="handle" />
+            <LongTextInput source="greeting" />
         </SimpleForm>
     </Create>
 );
