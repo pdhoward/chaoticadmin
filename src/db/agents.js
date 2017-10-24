@@ -14,7 +14,7 @@ const AgentFilter = (props) => (
 );
 
 export const AgentList = (props) => (
-    <List {...props} filters={<PostFilter />}>
+    <List {...props} filters={<AgentFilter />}>
      <Responsive
           small={
               <SimpleList
@@ -42,8 +42,8 @@ const AgentTitle = ({ record }) => {
     return <span>Agent {record ? `"${record.title}"` : ''}</span>;
 };
 
-export const ClientEdit = (props) => (
-    <Edit title={<PostTitle />} {...props}>
+export const AgentEdit = (props) => (
+    <Edit title={<AgentTitle />} {...props}>
         <SimpleForm>
             <DisabledInput source="id" />
             <ReferenceInput label="Client" source="clientId" reference="clients">
@@ -55,7 +55,7 @@ export const ClientEdit = (props) => (
     </Edit>
 );
 
-export const ClientCreate = (props) => (
+export const AgentCreate = (props) => (
     <Create {...props}>
         <SimpleForm>
             <ReferenceInput label="Client" source="clientId" reference="clients" allowEmpty>
