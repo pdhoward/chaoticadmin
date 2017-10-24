@@ -4,13 +4,13 @@ import './App.css';
 import { jsonServerRestClient,
         Admin, Resource }             from 'admin-on-rest';
 import { Delete }                     from 'admin-on-rest';
-import { PostList, PostCreate,
-         PostEdit }                   from './posts';
+import { AgentList, AgentCreate,
+         AgentEdit }                  from './agents';
 import { UserList }                   from './users';
 import Dashboard                      from './DashBoard'
 import authClient                     from './authClient';
 import restClient                     from './restClient';
-import PostIcon                       from 'material-ui/svg-icons/action/book';
+import AgentIcon                      from 'material-ui/svg-icons/social/person';
 import UserIcon                       from 'material-ui/svg-icons/social/group';
 
 ///////////////////////////////
@@ -38,7 +38,7 @@ const httpClient = (url, options = {}) => {
 
 const App = () => (
     <Admin authClient={authClient} dashboard={Dashboard} restClient={restClient(API_URL, httpClient)}>
-        <Resource name="posts" list={PostList} edit={PostEdit} create={PostCreate} remove={Delete} icon={PostIcon} />
+        <Resource name="agents" list={AgentList} edit={AgentEdit} create={AgentCreate} remove={Delete} icon={AgentIcon} />
         <Resource name="users" list={UserList} icon={UserIcon} />
     </Admin>
 );
