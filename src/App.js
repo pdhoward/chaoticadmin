@@ -26,9 +26,18 @@ import {
     fetchUtils,
 } from 'admin-on-rest';
 
+const API_URL = 'http://localhost:5002/admin';
+
+const httpClient = (url, options = {}) => {
+    options.user = {
+        authenticated: true,
+        token: 'SRTRDFVESGNJYTUKTYTHRG'
+    }
+    return fetchUtils.fetchJson(url, options);
+}
 
 const App = () => (
-    <Admin authClient={authClient} dashboard={Dashboard} restClient={restClient(GET_ONE, 'posts', { id: 123 })}>
+    <Admin authClient={authClient} dashboard={Dashboard} restClient={restClient(API_URL, httpClient)}>
         <Resource name="posts" list={PostList} edit={PostEdit} create={PostCreate} remove={Delete} icon={PostIcon} />
         <Resource name="users" list={UserList} icon={UserIcon} />
     </Admin>

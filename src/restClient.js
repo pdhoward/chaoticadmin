@@ -1,5 +1,5 @@
 import { stringify } from 'query-string';
-import { fetchJson } from '../util/fetch';
+//import { fetchJson } from '../util/fetch';
 import {
     GET_LIST,
     GET_ONE,
@@ -8,7 +8,8 @@ import {
     CREATE,
     UPDATE,
     DELETE,
-} from './types';
+    fetchUtils
+} from 'admin-on-rest';
 
 /**
  * Maps admin-on-rest queries to a simple REST API
@@ -23,6 +24,9 @@ import {
  * CREATE       => POST http://my.api.url/posts/123
  * DELETE       => DELETE http://my.api.url/posts/123
  */
+
+const { fetchJson } = fetchUtils;
+
 export default (apiUrl, httpClient = fetchJson) => {
     /**
      * @param {String} type One of the constants appearing at the top if this file, e.g. 'UPDATE'
@@ -39,7 +43,7 @@ export default (apiUrl, httpClient = fetchJson) => {
       console.log(type)
       console.log(resource)
       console.log(params)
-      
+
         let url = '';
         const options = {};
         switch (type) {
