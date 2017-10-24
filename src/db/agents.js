@@ -4,7 +4,7 @@ import { List, Edit, Create, Datagrid, ReferenceField, TextField,
          ReferenceInput, Responsive, SelectInput, SimpleForm,
          SimpleList, TextInput } from 'admin-on-rest';
 
-const PostFilter = (props) => (
+const AgentFilter = (props) => (
           <Filter {...props}>
               <TextInput label="Search" source="q" alwaysOn />
               <ReferenceInput label="User" source="userId" reference="users" allowEmpty>
