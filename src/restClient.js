@@ -117,6 +117,11 @@ export default (apiUrl, httpClient = fetchJson) => {
      */
     const convertHTTPResponseToREST = (response, type, resource, params) => {
         const { headers, json } = response;
+        console.log("RESPONSE")
+        console.log(headers)        
+        console.log(json)
+        console.log(response)
+
         switch (type) {
             case GET_LIST:
             case GET_MANY_REFERENCE:
@@ -154,8 +159,8 @@ export default (apiUrl, httpClient = fetchJson) => {
             resource,
             params
         );
-        return httpClient(url, options).then(response =>
+        return httpClient(url, options).then(response => {
             convertHTTPResponseToREST(response, type, resource, params)
-        );
+        });
     };
 };

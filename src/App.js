@@ -16,6 +16,9 @@ import ClientIcon                     from 'material-ui/svg-icons/social/group';
 const API_URL = 'http://localhost:5002/admin';
 
 const httpClient = (url, options = {}) => {
+    if (!options.headers) {
+      options.headers = new Headers({ Accept: 'application/json' });
+    }
     options.user = {
         authenticated: true,
         token: 'SRTRDFVESGNJYTUKTYTHRG'
