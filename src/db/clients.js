@@ -1,8 +1,8 @@
 import React from 'react';
 import { List, Datagrid, EmailField, TextField } from 'admin-on-rest';
 
-export const UserList = (props) => (
-    <List title="All users" {...props}>
+export const ClientList = (props) => (
+    <List title="All clients" {...props}>
         <Datagrid>
             <TextField source="id" />
             <TextField source="name" />

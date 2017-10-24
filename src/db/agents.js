@@ -7,13 +7,13 @@ import { List, Edit, Create, Datagrid, ReferenceField, TextField,
 const AgentFilter = (props) => (
           <Filter {...props}>
               <TextInput label="Search" source="q" alwaysOn />
-              <ReferenceInput label="User" source="userId" reference="users" allowEmpty>
+              <ReferenceInput label="Client" source="clientId" reference="clients" allowEmpty>
                     <SelectInput optionText="name" />
               </ReferenceInput>
           </Filter>
 );
 
-export const PostList = (props) => (
+export const AgentList = (props) => (
     <List {...props} filters={<PostFilter />}>
      <Responsive
           small={
@@ -38,11 +38,11 @@ export const PostList = (props) => (
     </List>
 );
 
-const PostTitle = ({ record }) => {
-    return <span>Post {record ? `"${record.title}"` : ''}</span>;
+const AgentTitle = ({ record }) => {
+    return <span>Agent {record ? `"${record.title}"` : ''}</span>;
 };
 
-export const PostEdit = (props) => (
+export const ClientEdit = (props) => (
     <Edit title={<PostTitle />} {...props}>
         <SimpleForm>
             <DisabledInput source="id" />
@@ -55,7 +55,7 @@ export const PostEdit = (props) => (
     </Edit>
 );
 
-export const PostCreate = (props) => (
+export const ClientCreate = (props) => (
     <Create {...props}>
         <SimpleForm>
             <ReferenceInput label="User" source="userId" reference="users" allowEmpty>
