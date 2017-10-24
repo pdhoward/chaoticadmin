@@ -30,7 +30,16 @@ export default (apiUrl, httpClient = fetchJson) => {
      * @param {Object} params The REST request params, depending on the type
      * @returns {Object} { url, options } The HTTP request parameters
      */
+     console.log("ENTERED RESTCLIENT")
+     console.log(apiUrl)
+     console.log(httpClient)
+
     const convertRESTRequestToHTTP = (type, resource, params) => {
+      console.log("ENTERED REST TO HTTP")
+      console.log(type)
+      console.log(resource)
+      console.log(params)
+      
         let url = '';
         const options = {};
         switch (type) {
