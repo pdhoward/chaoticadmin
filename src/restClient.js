@@ -118,10 +118,11 @@ export default (apiUrl, httpClient = fetchJson) => {
     const convertHTTPResponseToREST = (response, type, resource, params) => {
         const { headers, json } = response;
         console.log("RESPONSE")
-        console.log(headers)        
-        console.log(json)
-        console.log(response)
-
+        console.log(headers.get("content-range"))
+        console.log(headers.get("content-type"))
+        console.log(headers.get("x-powered-by"))
+        console.log(headers.get("access-control-allow-origin"))
+        console.log(headers.get("content-length"))
         switch (type) {
             case GET_LIST:
             case GET_MANY_REFERENCE:
@@ -143,7 +144,7 @@ export default (apiUrl, httpClient = fetchJson) => {
             case CREATE:
                 return { data: { ...params.data, id: json.id } };
             default:
-                return { data: json };
+                return { data: json  };
         }
     };
 
@@ -160,6 +161,9 @@ export default (apiUrl, httpClient = fetchJson) => {
             params
         );
         return httpClient(url, options).then(response => {
+            console.log("executed httpclient -- got response")
+            console.log(url)
+            console.log(options)
             convertHTTPResponseToREST(response, type, resource, params)
         });
     };
