@@ -16,6 +16,8 @@ export default (type, params) => {
     // called when the API returns an error
     if (type === AUTH_ERROR) {
         const { status } = params;
+        console.log("AUTH ERROR")
+        console.log(status)
         if (status === 401 || status === 403) {
             localStorage.removeItem('username');
             return Promise.reject();

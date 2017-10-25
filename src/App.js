@@ -25,12 +25,19 @@ const httpClient = (url, options = {}) => {
     }
     return fetchUtils.fetchJson(url, options);
 }
-
+/*
 const App = () => (
     <Admin authClient={authClient} dashboard={Dashboard} restClient={restClient(API_URL, httpClient)}>
         <Resource name="agents" list={AgentList} edit={AgentEdit} create={AgentCreate} remove={Delete} icon={AgentIcon} />
         <Resource name="clients" list={ClientList} icon={ClientIcon} />
     </Admin>
 );
+*/
 
+const App = () => (
+    <Admin authClient={authClient} dashboard={Dashboard} restClient={restClient(API_URL)}>
+        <Resource name="agents" list={AgentList} edit={AgentEdit} create={AgentCreate} remove={Delete} icon={AgentIcon} />
+        <Resource name="clients" list={ClientList} icon={ClientIcon} />
+    </Admin>
+);
 export default App;
